@@ -9,7 +9,6 @@ public static class ROTA_POST
 {
     public static void MapPostRoutes(this WebApplication app)
     {
-        // Rota para adicionar produto
         app.MapPost("/api/produto", async (Produto produto, AppDbContext context) =>
         {
             produto.dataCadastro = DateTime.Now;
@@ -18,7 +17,6 @@ public static class ROTA_POST
             return Results.Created($"/api/produto/{produto.id}", produto);
         });
 
-        // Rota para adicionar categoria
         app.MapPost("/api/categoria", async (Categoria categoria, AppDbContext context) =>
         {
             context.Categorias.Add(categoria);
@@ -26,7 +24,6 @@ public static class ROTA_POST
             return Results.Created($"/api/categoria/{categoria.id}", categoria);
         });
 
-        // Rota para adicionar fornecedor
         app.MapPost("/api/fornecedor", async (Fornecedor fornecedor, AppDbContext context) =>
         {
             context.Fornecedores.Add(fornecedor);
@@ -34,7 +31,6 @@ public static class ROTA_POST
             return Results.Created($"/api/fornecedor/{fornecedor.id}", fornecedor);
         });
 
-        // Rota para adicionar movimentação
         app.MapPost("/api/movimentacao", async (Movimentacao movimentacao, AppDbContext context) =>
         {
             var produto = await context.Produtos.FindAsync(movimentacao.produtoId);
@@ -43,7 +39,6 @@ public static class ROTA_POST
                 return Results.NotFound("Produto não encontrado.");
             }
 
-            // Atualiza a quantidade do produto
             if (movimentacao.tipo == "Entrada")
             {
                 produto.quantidade += movimentacao.quantidade;

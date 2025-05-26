@@ -9,7 +9,6 @@ public static class ROTA_GET
 {
     public static void MapGetRoutes(this WebApplication app)
     {
-        // Rotas para Produtos
         app.MapGet("/api/produto", async (AppDbContext context) =>
         {
             var produtos = await context.Produtos
@@ -36,7 +35,6 @@ public static class ROTA_GET
             return Results.Ok(produto);
         });
 
-        // Rotas para Categorias
         app.MapGet("/api/categoria", async (AppDbContext context) =>
         {
             var categorias = await context.Categorias.ToListAsync();
@@ -57,7 +55,6 @@ public static class ROTA_GET
             return Results.Ok(categoria);
         });
 
-        // Rotas para Fornecedores
         app.MapGet("/api/fornecedor", async (AppDbContext context) =>
         {
             var fornecedores = await context.Fornecedores.ToListAsync();
@@ -78,7 +75,6 @@ public static class ROTA_GET
             return Results.Ok(fornecedor);
         });
 
-        // Rotas para Movimentações
         app.MapGet("/api/movimentacao", async (AppDbContext context) =>
         {
             var movimentacoes = await context.Movimentacoes
@@ -103,7 +99,6 @@ public static class ROTA_GET
             return Results.Ok(movimentacao);
         });
 
-        // Rota para buscar movimentações de um produto específico
         app.MapGet("/api/movimentacao/produto/{produtoId}", async (int produtoId, AppDbContext context) =>
         {
             var movimentacoes = await context.Movimentacoes

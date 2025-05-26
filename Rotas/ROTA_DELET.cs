@@ -9,7 +9,6 @@ public static class ROTA_DELET
 {
     public static void MapDeleteRoutes(this WebApplication app)
     {
-        // Rota para deletar produto
         app.MapDelete("/api/produto/{id}", async (int id, AppDbContext context) =>
         {
             var produto = await context.Produtos.FindAsync(id);
@@ -29,7 +28,6 @@ public static class ROTA_DELET
             return Results.Ok("Produto deletado com sucesso.");
         });
 
-        // Rota para deletar categoria
         app.MapDelete("/api/categoria/{id}", async (int id, AppDbContext context) =>
         {
             var categoria = await context.Categorias.FindAsync(id);
@@ -49,7 +47,6 @@ public static class ROTA_DELET
             return Results.Ok("Categoria deletada com sucesso.");
         });
 
-        // Rota para deletar fornecedor
         app.MapDelete("/api/fornecedor/{id}", async (int id, AppDbContext context) =>
         {
             var fornecedor = await context.Fornecedores.FindAsync(id);
@@ -69,7 +66,6 @@ public static class ROTA_DELET
             return Results.Ok("Fornecedor deletado com sucesso.");
         });
 
-        // Rota para deletar movimentação
         app.MapDelete("/api/movimentacao/{id}", async (int id, AppDbContext context) =>
         {
             var movimentacao = await context.Movimentacoes.FindAsync(id);
@@ -81,7 +77,6 @@ public static class ROTA_DELET
             var produto = await context.Produtos.FindAsync(movimentacao.produtoId);
             if (produto != null)
             {
-                // Reverte a movimentação
                 if (movimentacao.tipo == "Entrada")
                 {
                     produto.quantidade -= movimentacao.quantidade;

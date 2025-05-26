@@ -3084,11 +3084,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\antonio\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj",
+      "projectUniqueName": "C:\\xampp\\htdocs\\ControleDeEstoque\\ControleDeEstoque.csproj",
       "projectName": "ControleDeEstoque",
-      "projectPath": "C:\\Users\\antonio\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj",
+      "projectPath": "C:\\xampp\\htdocs\\ControleDeEstoque\\ControleDeEstoque.csproj",
       "packagesPath": "C:\\Users\\antonio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\antonio\\Desktop\\ControleDeEstoque\\obj\\",
+      "outputPath": "C:\\xampp\\htdocs\\ControleDeEstoque\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\antonio\\AppData\\Roaming\\NuGet\\NuGet.Config"

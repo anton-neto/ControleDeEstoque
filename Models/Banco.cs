@@ -9,36 +9,38 @@ public static class Banco
         using (var scope = app.CreateScope())
         {
             var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             if (!context.Categorias.Any())
             {
-                context.Categorias.Add(new Categoria { nome = "Eletrônicos", descricao = "Produtos eletrônicos em geral" });
-                context.Categorias.Add(new Categoria { nome = "Informática", descricao = "Produtos de informática" });
-                context.Categorias.Add(new Categoria { nome = "Móveis", descricao = "Móveis para escritório" });
-                context.Categorias.Add(new Categoria { nome = "Papelaria", descricao = "Material de escritório" });
-                context.Categorias.Add(new Categoria { nome = "Limpeza", descricao = "Produtos de limpeza" });
+                context.Categorias.Add(new Categoria { nome = "Motor", descricao = "Peças do motor e componentes relacionados" });
+                context.Categorias.Add(new Categoria { nome = "Suspensão", descricao = "Componentes de suspensão e direção" });
+                context.Categorias.Add(new Categoria { nome = "Freios", descricao = "Sistema de freios e componentes" });
+                context.Categorias.Add(new Categoria { nome = "Elétrica", descricao = "Componentes elétricos e eletrônicos" });
+                context.Categorias.Add(new Categoria { nome = "Acessórios", descricao = "Acessórios e itens de customização" });
                 context.SaveChanges();
             }
 
             if (!context.Fornecedores.Any())
             {
                 context.Fornecedores.Add(new Fornecedor { 
-                    nome = "Tech Solutions", 
+                    nome = "Auto Parts Brasil", 
                     cnpj = "12345678901234", 
                     telefone = "41987654321",
-                    email = "contato@techsolutions.com",
-                    endereco = "Rua das Flores, 123",
+                    email = "contato@autoparts.com.br",
+                    endereco = "Av. Industrial, 1000",
                     cidade = "Curitiba",
                     estado = "PR",
-                    cep = "80010-000"
+                    cep = "80000-000"
                 });
                 context.Fornecedores.Add(new Fornecedor { 
-                    nome = "Office Supplies", 
+                    nome = "Mecânica Express", 
                     cnpj = "23456789012345", 
                     telefone = "41987654322",
-                    email = "contato@officesupplies.com",
-                    endereco = "Av. Principal, 456",
+                    email = "contato@mecanicaexpress.com.br",
+                    endereco = "Rua das Oficinas, 500",
                     cidade = "São Paulo",
                     estado = "SP",
                     cep = "01310-000"
@@ -49,93 +51,93 @@ public static class Banco
             if (!context.Produtos.Any())
             {
                 context.Produtos.Add(new Produto { 
-                    nome = "Notebook Dell", 
-                    descricao = "Notebook Dell Inspiron 15", 
-                    preco = 3500.00m,
-                    quantidade = 10,
-                    categoriaId = 1,
-                    fornecedorId = 1,
-                    dataCadastro = DateTime.Now
-                });
-                context.Produtos.Add(new Produto { 
-                    nome = "Monitor LG", 
-                    descricao = "Monitor LG 24 polegadas", 
-                    preco = 800.00m,
-                    quantidade = 15,
-                    categoriaId = 1,
-                    fornecedorId = 1,
-                    dataCadastro = DateTime.Now
-                });
-                context.Produtos.Add(new Produto { 
-                    nome = "Mesa Escritório", 
-                    descricao = "Mesa de escritório em madeira", 
-                    preco = 450.00m,
-                    quantidade = 8,
-                    categoriaId = 3,
-                    fornecedorId = 2,
-                    dataCadastro = DateTime.Now
-                });
-                context.Produtos.Add(new Produto { 
-                    nome = "Cadeira Ergonômica", 
-                    descricao = "Cadeira ergonômica para escritório", 
-                    preco = 650.00m,
-                    quantidade = 12,
-                    categoriaId = 3,
-                    fornecedorId = 2,
-                    dataCadastro = DateTime.Now
-                });
-                context.Produtos.Add(new Produto { 
-                    nome = "Papel A4", 
-                    descricao = "Pacote com 500 folhas", 
-                    preco = 25.00m,
+                    nome = "Filtro de Óleo", 
+                    descricao = "Filtro de óleo universal", 
+                    preco = 35.00m,
                     quantidade = 50,
-                    categoriaId = 4,
-                    fornecedorId = 2,
+                    categoriaId = 1,
+                    fornecedorId = 1,
                     dataCadastro = DateTime.Now
                 });
                 context.Produtos.Add(new Produto { 
-                    nome = "Impressora HP", 
-                    descricao = "Impressora HP LaserJet Pro", 
-                    preco = 1200.00m,
-                    quantidade = 5,
+                    nome = "Amortecedor Dianteiro", 
+                    descricao = "Par de amortecedores dianteiros", 
+                    preco = 450.00m,
+                    quantidade = 15,
                     categoriaId = 2,
                     fornecedorId = 1,
                     dataCadastro = DateTime.Now
                 });
                 context.Produtos.Add(new Produto { 
-                    nome = "Teclado Mecânico", 
-                    descricao = "Teclado mecânico RGB", 
-                    preco = 250.00m,
-                    quantidade = 20,
-                    categoriaId = 2,
-                    fornecedorId = 1,
-                    dataCadastro = DateTime.Now
-                });
-                context.Produtos.Add(new Produto { 
-                    nome = "Mouse Gamer", 
-                    descricao = "Mouse gamer com 6 botões", 
-                    preco = 150.00m,
-                    quantidade = 25,
-                    categoriaId = 2,
-                    fornecedorId = 1,
-                    dataCadastro = DateTime.Now
-                });
-                context.Produtos.Add(new Produto { 
-                    nome = "Detergente", 
-                    descricao = "Detergente líquido 500ml", 
-                    preco = 8.50m,
+                    nome = "Pastilha de Freio", 
+                    descricao = "Jogo de pastilhas de freio dianteiras", 
+                    preco = 120.00m,
                     quantidade = 30,
-                    categoriaId = 5,
+                    categoriaId = 3,
                     fornecedorId = 2,
                     dataCadastro = DateTime.Now
                 });
                 context.Produtos.Add(new Produto { 
-                    nome = "Caneta Esferográfica", 
-                    descricao = "Pacote com 10 canetas", 
-                    preco = 15.00m,
+                    nome = "Bateria 60Ah", 
+                    descricao = "Bateria automotiva 60Ah", 
+                    preco = 350.00m,
+                    quantidade = 20,
+                    categoriaId = 4,
+                    fornecedorId = 1,
+                    dataCadastro = DateTime.Now
+                });
+                context.Produtos.Add(new Produto { 
+                    nome = "Óleo de Motor", 
+                    descricao = "Óleo sintético 5W30 1L", 
+                    preco = 45.00m,
                     quantidade = 100,
+                    categoriaId = 1,
+                    fornecedorId = 2,
+                    dataCadastro = DateTime.Now
+                });
+                context.Produtos.Add(new Produto { 
+                    nome = "Farol LED", 
+                    descricao = "Kit farol LED universal", 
+                    preco = 280.00m,
+                    quantidade = 25,
+                    categoriaId = 4,
+                    fornecedorId = 1,
+                    dataCadastro = DateTime.Now
+                });
+                context.Produtos.Add(new Produto { 
+                    nome = "Mola Esportiva", 
+                    descricao = "Kit mola esportiva universal", 
+                    preco = 850.00m,
+                    quantidade = 10,
+                    categoriaId = 2,
+                    fornecedorId = 2,
+                    dataCadastro = DateTime.Now
+                });
+                context.Produtos.Add(new Produto { 
+                    nome = "Disco de Freio", 
+                    descricao = "Par de discos de freio ventilados", 
+                    preco = 320.00m,
+                    quantidade = 20,
+                    categoriaId = 3,
+                    fornecedorId = 1,
+                    dataCadastro = DateTime.Now
+                });
+                context.Produtos.Add(new Produto { 
+                    nome = "Alarme Automotivo", 
+                    descricao = "Kit alarme com central", 
+                    preco = 450.00m,
+                    quantidade = 15,
                     categoriaId = 4,
                     fornecedorId = 2,
+                    dataCadastro = DateTime.Now
+                });
+                context.Produtos.Add(new Produto { 
+                    nome = "Jogo de Rodas", 
+                    descricao = "Jogo de rodas aro 17", 
+                    preco = 2800.00m,
+                    quantidade = 8,
+                    categoriaId = 5,
+                    fornecedorId = 1,
                     dataCadastro = DateTime.Now
                 });
                 context.SaveChanges();
@@ -146,7 +148,7 @@ public static class Banco
                 context.Movimentacoes.Add(new Movimentacao { 
                     produtoId = 1,
                     tipo = "Entrada",
-                    quantidade = 10,
+                    quantidade = 50,
                     data = DateTime.Now,
                     observacao = "Entrada inicial de estoque"
                 });
@@ -160,7 +162,7 @@ public static class Banco
                 context.Movimentacoes.Add(new Movimentacao { 
                     produtoId = 3,
                     tipo = "Entrada",
-                    quantidade = 8,
+                    quantidade = 30,
                     data = DateTime.Now,
                     observacao = "Entrada inicial de estoque"
                 });

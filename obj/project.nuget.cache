@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/OeHFSWao3w=",
+  "dgSpecHash": "XF46OswFRuk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj",
+  "projectFilePath": "c:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ANTONIOADAIRCABREIRA\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ANTONIOADAIRCABREIRA\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

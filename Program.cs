@@ -21,7 +21,7 @@ app.UseCors();
 
 Banco.PopularBancoDeDados(app.Services);
 
-app.MapGet("/", () => "API de Controle de Estoque");
+app.MapGet("/", () => "API de Controle de Estoque.");
 app.MapGetRoutes();
 app.MapPostRoutes();
 app.MapDeleteRoutes();

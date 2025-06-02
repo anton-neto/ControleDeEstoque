@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj": {}
+    "c:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj": {
+    "c:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj",
+        "projectUniqueName": "c:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj",
         "projectName": "ControleDeEstoque",
-        "projectPath": "C:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj",
+        "projectPath": "c:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\ControleDeEstoque.csproj",
         "packagesPath": "C:\\Users\\ANTONIOADAIRCABREIRA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\obj\\",
+        "outputPath": "c:\\Users\\ANTONIOADAIRCABREIRA\\Desktop\\ControleDeEstoque\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ANTONIOADAIRCABREIRA\\AppData\\Roaming\\NuGet\\NuGet.Config"

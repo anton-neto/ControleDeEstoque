@@ -59,5 +59,29 @@ public static class ROTA_POST
             await context.SaveChangesAsync();
             return Results.Created($"/api/movimentacao/{movimentacao.id}", movimentacao);
         });
+
+        app.MapPost("/api/venda", async (Venda venda, AppDbContext context) =>
+        {
+            var produto = await context.Produtos.FindAsync(venda.produtoId);
+            if (produto == null)
+            {
+                return Results.NotFound("Produto não encontrado.");
+            }
+
+            if (produto.quantidade < venda.quantidade)
+            {
+                return Results.BadRequest("Quantidade insuficiente em estoque.");
+            }
+
+            produto.quantidade -= venda.quantidade;
+            produto.dataAtualizacao = DateTime.Now;
+            venda.precoUnitario = produto.preco;
+            venda.total = produto.preco * venda.quantidade;
+            venda.data = DateTime.Now;
+
+            context.Vendas.Add(venda);
+            await context.SaveChangesAsync();
+            return Results.Created($"/api/venda/{venda.id}", venda);
+        });
     }
 } 

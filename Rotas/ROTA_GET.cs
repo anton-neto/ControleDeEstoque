@@ -111,5 +111,42 @@ public static class ROTA_GET
             }
             return Results.Ok(movimentacoes);
         });
+
+        app.MapGet("/api/venda", async (AppDbContext context) =>
+        {
+            var vendas = await context.Vendas
+                .Include(v => v.produto)
+                .ToListAsync();
+            if (vendas == null || vendas.Count == 0)
+            {
+                return Results.NotFound("Nenhuma venda encontrada.");
+            }
+            return Results.Ok(vendas);
+        });
+
+        app.MapGet("/api/venda/{id}", async (int id, AppDbContext context) =>
+        {
+            var venda = await context.Vendas
+                .Include(v => v.produto)
+                .FirstOrDefaultAsync(v => v.id == id);
+            if (venda == null)
+            {
+                return Results.NotFound("Venda não encontrada.");
+            }
+            return Results.Ok(venda);
+        });
+
+        app.MapGet("/api/venda/produto/{produtoId}", async (int produtoId, AppDbContext context) =>
+        {
+            var vendas = await context.Vendas
+                .Include(v => v.produto)
+                .Where(v => v.produtoId == produtoId)
+                .ToListAsync();
+            if (vendas == null || vendas.Count == 0)
+            {
+                return Results.NotFound("Nenhuma venda encontrada para este produto.");
+            }
+            return Results.Ok(vendas);
+        });
     }
 } 

@@ -10,9 +10,10 @@ public static class Banco
         {
             var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
             
-            context.Database.EnsureDeleted();
+            // Garante que o banco de dados existe
             context.Database.EnsureCreated();
 
+            // Só popula os dados iniciais se não houver nenhuma categoria
             if (!context.Categorias.Any())
             {
                 context.Categorias.Add(new Categoria { nome = "Motor", descricao = "Peças do motor e componentes relacionados" });
@@ -165,6 +166,27 @@ public static class Banco
                     quantidade = 30,
                     data = DateTime.Now,
                     observacao = "Entrada inicial de estoque"
+                });
+                context.SaveChanges();
+            }
+
+            if (!context.Vendas.Any())
+            {
+                context.Vendas.Add(new Venda { 
+                    produtoId = 1,
+                    quantidade = 2,
+                    precoUnitario = 35.00m,
+                    total = 70.00m,
+                    data = DateTime.Now,
+                    observacao = "Venda inicial"
+                });
+                context.Vendas.Add(new Venda { 
+                    produtoId = 3,
+                    quantidade = 1,
+                    precoUnitario = 120.00m,
+                    total = 120.00m,
+                    data = DateTime.Now,
+                    observacao = "Venda inicial"
                 });
                 context.SaveChanges();
             }

@@ -92,5 +92,25 @@ public static class ROTA_DELET
             await context.SaveChangesAsync();
             return Results.Ok("Movimentação deletada com sucesso.");
         });
+
+        app.MapDelete("/api/venda/{id}", async (int id, AppDbContext context) =>
+        {
+            var venda = await context.Vendas.FindAsync(id);
+            if (venda == null)
+            {
+                return Results.NotFound("Venda não encontrada.");
+            }
+
+            var produto = await context.Produtos.FindAsync(venda.produtoId);
+            if (produto != null)
+            {
+                produto.quantidade += venda.quantidade;
+                produto.dataAtualizacao = DateTime.Now;
+            }
+
+            context.Vendas.Remove(venda);
+            await context.SaveChangesAsync();
+            return Results.Ok("Venda deletada com sucesso.");
+        });
     }
 } 

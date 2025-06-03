@@ -18,4 +18,7 @@ public class Produto
 
     [JsonIgnore]
     public ICollection<Movimentacao> Movimentacoes { get; set; }
+
+    [JsonIgnore]
+    public ICollection<Venda> Vendas { get; set; }
 } 
